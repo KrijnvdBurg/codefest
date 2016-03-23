@@ -2,14 +2,21 @@
 class NavBar {
 	private $navbar;
 
+	private $conn;
+    function __construct(){
+        require_once '../include/DB_Connect.php';
+        $db         = new Db_Connect();
+        $this->conn = $db->connect();
+    }
+
 	function __construct() {
 		//menuItems eerste value is path 2de value is item
-		$menuItems = array(
-			array ('', ''),
-			array ('', ''),
-			array ('', ''),
-			array ('', '')
-		);
+		$menuItems = array();
+		$stmt = $this->conn->query("SELECT `item`, `path` FROM `menu` WHERE `menu_id` = 1");
+		foreach ($conn->query($stmnt) as $menuQuery) {
+			$temparr = array($menuQuery['path'] => $menuQuery['item']);
+		}
+		$menuItems = array_merge($menuItems, $temparr);
 		$this->navbar = $menuItems;
 	}
 
