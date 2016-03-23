@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 23 mrt 2016 om 19:48
+-- Gegenereerd op: 23 mrt 2016 om 20:53
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -130,6 +130,54 @@ INSERT INTO `menu` (`id`, `item`, `path`, `menu_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabelstructuur voor tabel `projects`
+--
+
+CREATE TABLE IF NOT EXISTS `projects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `naam` varchar(45) NOT NULL,
+  `max_hours` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `projects`
+--
+
+INSERT INTO `projects` (`id`, `naam`, `max_hours`) VALUES
+(1, 'project 1', 200),
+(2, 'project 2', 100);
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `project_schedule`
+--
+
+CREATE TABLE IF NOT EXISTS `project_schedule` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `project_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `worked_hours` int(11) NOT NULL,
+  `overtime` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `project_schedule`
+--
+
+INSERT INTO `project_schedule` (`id`, `user_id`, `project_id`, `date`, `worked_hours`, `overtime`) VALUES
+(1, 1, 1, '2016-03-23', 8, 2),
+(2, 2, 1, '2016-03-22', 8, 3),
+(3, 1, 2, '2016-03-22', 8, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Tabelstructuur voor tabel `ptf`
 --
 
@@ -137,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `ptf` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ptf` decimal(10,1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `ptf`
