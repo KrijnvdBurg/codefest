@@ -3,7 +3,6 @@ require_once ('.\cgi_bin\connector.php');
     class DatabaseHandler
     {
         private $databaseHandle;
-        
 
         public function __construct($host,$user,$password,$database)
         {

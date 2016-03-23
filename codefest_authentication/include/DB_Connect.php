@@ -9,11 +9,10 @@ class DB_Connect {
 
     // Connecting to database
     public function connect() {
-        require_once 'include/Config.php';
+        require_once './cgi_bin/connector.php';
         
         // Connecting to mysql database
-        //$this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
-		$this->conn = new PDO('mysql:host=DB_HOST;dbname=DB_DATABASE;', 'DB_USER', 'DB_PASSWORD');
+		$this->conn = new PDO('mysql:host=$host; dbname=$database;', $username , $password);
         // return database handler
         return $this->conn;
     }
