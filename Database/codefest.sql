@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 23 mrt 2016 om 20:53
+-- Gegenereerd op: 23 mrt 2016 om 21:09
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Databank: `codefest`
 --
+CREATE DATABASE IF NOT EXISTS `codefest` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `codefest`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Tabelstructuur voor tabel `absence`
 --
 
+DROP TABLE IF EXISTS `absence`;
 CREATE TABLE IF NOT EXISTS `absence` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -35,13 +38,17 @@ CREATE TABLE IF NOT EXISTS `absence` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
+-- Tabel leegmaken voor invoegen `absence`
+--
+
+TRUNCATE TABLE `absence`;
+--
 -- Gegevens worden geëxporteerd voor tabel `absence`
 --
 
 INSERT INTO `absence` (`id`, `user_id`, `status_id`, `permission`) VALUES
 (1, 2, 1, 0),
-(2, 1, 1, 1),
-(3, 2, 1, 0);
+(2, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -49,12 +56,18 @@ INSERT INTO `absence` (`id`, `user_id`, `status_id`, `permission`) VALUES
 -- Tabelstructuur voor tabel `department`
 --
 
+DROP TABLE IF EXISTS `department`;
 CREATE TABLE IF NOT EXISTS `department` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `department` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
+--
+-- Tabel leegmaken voor invoegen `department`
+--
+
+TRUNCATE TABLE `department`;
 --
 -- Gegevens worden geëxporteerd voor tabel `department`
 --
@@ -72,6 +85,7 @@ INSERT INTO `department` (`id`, `department`) VALUES
 -- Tabelstructuur voor tabel `holidays`
 --
 
+DROP TABLE IF EXISTS `holidays`;
 CREATE TABLE IF NOT EXISTS `holidays` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `holiday` varchar(45) NOT NULL,
@@ -80,6 +94,11 @@ CREATE TABLE IF NOT EXISTS `holidays` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
+--
+-- Tabel leegmaken voor invoegen `holidays`
+--
+
+TRUNCATE TABLE `holidays`;
 --
 -- Gegevens worden geëxporteerd voor tabel `holidays`
 --
@@ -101,6 +120,7 @@ INSERT INTO `holidays` (`id`, `holiday`, `start_date`, `end_date`) VALUES
 -- Tabelstructuur voor tabel `menu`
 --
 
+DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item` varchar(45) NOT NULL,
@@ -110,22 +130,27 @@ CREATE TABLE IF NOT EXISTS `menu` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
+-- Tabel leegmaken voor invoegen `menu`
+--
+
+TRUNCATE TABLE `menu`;
+--
 -- Gegevens worden geëxporteerd voor tabel `menu`
 --
 
 INSERT INTO `menu` (`id`, `item`, `path`, `menu_id`) VALUES
-(1, 'Ziek', '', 1),
-(2, 'Vakantie', '', 1),
-(3, 'Uren', '', 1),
-(4, 'Overzicht', '', 1),
-(5, 'Toevoegen Medewerker', '', 2),
-(6, 'Verwijderen Medewerker', '', 2),
-(7, 'Wijzigen', '', 2),
-(8, 'Overzichten', '', 2),
-(9, 'Parameters', '', 2),
-(10, 'Goedkeuren Verlof', '', 3),
-(11, 'Wijzigen Projecturen', '', 3),
-(12, 'Overzichten', '', 3);
+(1, 'Ziek', '/uziek.php', 1),
+(2, 'Vakantie', '/uvakantie.php', 1),
+(3, 'Uren', '/uuren.php', 1),
+(4, 'Overzicht', '/uoverzicht.php', 1),
+(5, 'Toevoegen Medewerker', '/atoevoegenmedewerker.php', 2),
+(6, 'Verwijderen Medewerker', '/averwijderenmedewerker.php', 2),
+(7, 'Wijzigen', '/awijzigen.php', 2),
+(8, 'Overzichten', '/aoverzichten.php', 2),
+(9, 'Parameters', '/aparameters.php', 2),
+(10, 'Goedkeuren Verlof', '/mgoedkeurenverlof.php', 3),
+(11, 'Wijzigen Projecturen', '/mwijzigenprojecturen.php', 3),
+(12, 'Overzichten', '/moverzichten.php', 3);
 
 -- --------------------------------------------------------
 
@@ -133,6 +158,7 @@ INSERT INTO `menu` (`id`, `item`, `path`, `menu_id`) VALUES
 -- Tabelstructuur voor tabel `projects`
 --
 
+DROP TABLE IF EXISTS `projects`;
 CREATE TABLE IF NOT EXISTS `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `naam` varchar(45) NOT NULL,
@@ -141,6 +167,11 @@ CREATE TABLE IF NOT EXISTS `projects` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+--
+-- Tabel leegmaken voor invoegen `projects`
+--
+
+TRUNCATE TABLE `projects`;
 --
 -- Gegevens worden geëxporteerd voor tabel `projects`
 --
@@ -155,6 +186,7 @@ INSERT INTO `projects` (`id`, `naam`, `max_hours`) VALUES
 -- Tabelstructuur voor tabel `project_schedule`
 --
 
+DROP TABLE IF EXISTS `project_schedule`;
 CREATE TABLE IF NOT EXISTS `project_schedule` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -166,6 +198,11 @@ CREATE TABLE IF NOT EXISTS `project_schedule` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
+--
+-- Tabel leegmaken voor invoegen `project_schedule`
+--
+
+TRUNCATE TABLE `project_schedule`;
 --
 -- Gegevens worden geëxporteerd voor tabel `project_schedule`
 --
@@ -181,12 +218,18 @@ INSERT INTO `project_schedule` (`id`, `user_id`, `project_id`, `date`, `worked_h
 -- Tabelstructuur voor tabel `ptf`
 --
 
+DROP TABLE IF EXISTS `ptf`;
 CREATE TABLE IF NOT EXISTS `ptf` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `ptf` decimal(10,1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
+--
+-- Tabel leegmaken voor invoegen `ptf`
+--
+
+TRUNCATE TABLE `ptf`;
 --
 -- Gegevens worden geëxporteerd voor tabel `ptf`
 --
@@ -208,12 +251,18 @@ INSERT INTO `ptf` (`id`, `ptf`) VALUES
 -- Tabelstructuur voor tabel `roles`
 --
 
+DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
+--
+-- Tabel leegmaken voor invoegen `roles`
+--
+
+TRUNCATE TABLE `roles`;
 --
 -- Gegevens worden geëxporteerd voor tabel `roles`
 --
@@ -229,12 +278,18 @@ INSERT INTO `roles` (`id`, `role`) VALUES
 -- Tabelstructuur voor tabel `status`
 --
 
+DROP TABLE IF EXISTS `status`;
 CREATE TABLE IF NOT EXISTS `status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
+--
+-- Tabel leegmaken voor invoegen `status`
+--
+
+TRUNCATE TABLE `status`;
 --
 -- Gegevens worden geëxporteerd voor tabel `status`
 --
@@ -249,6 +304,7 @@ INSERT INTO `status` (`id`, `status`) VALUES
 -- Tabelstructuur voor tabel `total_attendence`
 --
 
+DROP TABLE IF EXISTS `total_attendence`;
 CREATE TABLE IF NOT EXISTS `total_attendence` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `start_date` date NOT NULL,
@@ -258,6 +314,11 @@ CREATE TABLE IF NOT EXISTS `total_attendence` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
+--
+-- Tabel leegmaken voor invoegen `total_attendence`
+--
+
+TRUNCATE TABLE `total_attendence`;
 --
 -- Gegevens worden geëxporteerd voor tabel `total_attendence`
 --
@@ -274,6 +335,7 @@ INSERT INTO `total_attendence` (`id`, `start_date`, `sick_days`, `days_off`, `us
 -- Tabelstructuur voor tabel `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
@@ -287,6 +349,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
+--
+-- Tabel leegmaken voor invoegen `users`
+--
+
+TRUNCATE TABLE `users`;
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
