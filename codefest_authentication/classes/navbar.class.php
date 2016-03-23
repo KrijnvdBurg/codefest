@@ -1,9 +1,9 @@
 <?php
 class NavBar {
 	private $navbar;
-	//menuItems eerste value is path 2de value is item
 
 	function __construct() {
+		//menuItems eerste value is path 2de value is item
 		$menuItems = array(
 			array ('', ''),
 			array ('', ''),
