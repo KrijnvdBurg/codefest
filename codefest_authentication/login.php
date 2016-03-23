@@ -17,11 +17,13 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if ($user != false) {
         // use is found
         $response["error"] = FALSE;
-        $response["uid"] = $user["unique_id"];
-        $response["user"]["name"] = $user["name"];
-        $response["user"]["email"] = $user["email"];
-        $response["user"]["created_at"] = $user["created_at"];
-        $response["user"]["updated_at"] = $user["updated_at"];
+        $response["id"] = $user["id"];
+        $response["user"]["username"] = $user["username"];
+        $response["user"]["role_id"] = $user["role_id"];
+        $response["user"]["firstname"] = $user["firstname"];
+        $response["user"]["lastname"] = $user["lastname"];
+        $response["user"]["department_id"] = $user["department_id"];
+        $response["user"]["ptf_id"] = $user["ptf_id"];
         echo json_encode($response);
     } else {
         // user is not found with the credentials

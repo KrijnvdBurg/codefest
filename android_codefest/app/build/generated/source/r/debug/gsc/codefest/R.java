@@ -11,6 +11,7 @@ public final class R {
     public static final class array {
         public static final int nav_drawer_icons=0x7f050000;
         public static final int nav_drawer_items=0x7f050001;
+        public static final int requestType_array=0x7f050002;
     }
     public static final class attr {
     }
@@ -55,25 +56,30 @@ public final class R {
         public static final int list_selector=0x7f02000c;
     }
     public static final class id {
-        public static final int action_logout=0x7f0b0014;
-        public static final int action_settings=0x7f0b0015;
+        public static final int absenceStatus_spinner=0x7f0b0012;
+        public static final int action_logout=0x7f0b0019;
+        public static final int action_settings=0x7f0b001a;
         public static final int btnLinkToLoginScreen=0x7f0b000c;
         public static final int btnLinkToRegisterScreen=0x7f0b0003;
         public static final int btnLogin=0x7f0b0002;
         public static final int btnRegister=0x7f0b000b;
         public static final int counter=0x7f0b000f;
         public static final int drawer_layout=0x7f0b0004;
-        public static final int editText1=0x7f0b0012;
         public static final int frame_container=0x7f0b0005;
         public static final int icon=0x7f0b000d;
-        public static final int imageButton1=0x7f0b0013;
         public static final int imageView=0x7f0b0011;
         public static final int list_slidermenu=0x7f0b0006;
         public static final int name=0x7f0b0009;
         public static final int password=0x7f0b0001;
         public static final int password_re=0x7f0b000a;
+        public static final int reason_editText=0x7f0b0018;
         public static final int registerID=0x7f0b0007;
         public static final int registerLinear=0x7f0b0008;
+        public static final int sendSickPeriod_button=0x7f0b0017;
+        public static final int sickFrom_editText=0x7f0b0013;
+        public static final int sickFrom_imageButton=0x7f0b0015;
+        public static final int sickTill_editText=0x7f0b0016;
+        public static final int sickTill_imageButton=0x7f0b0014;
         public static final int title=0x7f0b000e;
         public static final int txtLabel=0x7f0b0010;
         public static final int username=0x7f0b0000;

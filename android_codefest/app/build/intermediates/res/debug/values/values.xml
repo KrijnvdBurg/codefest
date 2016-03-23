@@ -16,6 +16,10 @@
         <item>Hours</item>
         <item>Overview</item>
     </string-array>
+    <string-array name="requestType_array">
+        <item>Sick</item>
+        <item>Vacation</item>
+    </string-array>
     <!-- From: file:/D:/repositories/codefest/android_codefest/app/src/main/res/values/color.xml -->
     <eat-comment/>
     <color name="bg_login">#1D91B8</color>

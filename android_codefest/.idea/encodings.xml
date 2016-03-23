@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/activities/RegisterActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/app/AppConfig.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/app/AppController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/constructors/tokenInfo_constr/tokenInfo_root.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/helper/SQLiteHandler.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/helper/SessionManager.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi/edittext_style.xml" charset="UTF-8" />

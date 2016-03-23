@@ -13,18 +13,16 @@ class DB_Functions{
     function __destruct(){}
 
     
-    public function storeUser($name, $email, $password){
+    public function storeUser($username, $password, $role_id, $firstname, $lastname, $department_id, $ptf_id){
         
         $uuid = uniqid('', true);
         $encrypted_password = md5($password);
-        $stmt = $this->conn->prepare("INSERT INTO users(unique_id, name, email, encrypted_password, created_at) VALUES(?, ?, ?, ?, NOW())");
-        //$stmt->bindParam(":uuid, :name, :email, :encrypted_password", $uuid, $name, $email, $encrypted_password);
-        $result = $stmt->execute([$uuid, $name, $email, $encrypted_password]);
+        $stmt = $this->conn->prepare("INSERT INTO users(username, password, role_id, firstname, lastname, department_id, ptf_id ) VALUES(?, ?, ?, ?, ?, ?, ?");
+        $result = $stmt->execute([$username, $password, $role_id, $firstname, $lastname, $department_id, $ptf_id]);
 
         if ($result) {
-            $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
-            //$stmt->bindParam(":email", $email);
-            $stmt->execute([$email]);
+            $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ?");
+            $stmt->execute([$username]);
 			$user = $stmt->fetch(PDO::FETCH_ASSOC);
             return $user;
         } else {
@@ -32,10 +30,10 @@ class DB_Functions{
         }
     }
     
-    public function getUserByEmailAndPassword($email, $password){
-        $stmt           = $this->conn->prepare("SELECT * FROM users WHERE email = ? AND encrypted_password = ?");
+    public function getUserByEmailAndPassword($username, $password){
+        $stmt           = $this->conn->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
         $crypt_password = md5($password);
-        if ($stmt->execute([$email, $crypt_password])) {
+        if ($stmt->execute([$username, $crypt_password])) {
 			$user = $stmt->fetch(PDO::FETCH_ASSOC);
             return $user;
         } else {
@@ -43,15 +41,49 @@ class DB_Functions{
         }
     }
     
-    public function isUserExisted($email){
-        $stmt = $this->conn->prepare("SELECT email from users WHERE email = ?");
-        $stmt->execute([$email]);
+    public function isUserExisted($username){
+        $stmt = $this->conn->prepare("SELECT username from users WHERE username = ?");
+        $stmt->execute([$username]);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($row) {
             return true;
         } else {
             return false;
+        }
+    }
+
+
+    public function savePeriodOffInput($userid, $startDate, $endDate, $status){
+        
+        $stmt = $this->conn->prepare("INSERT INTO absence(username, password, role_id, firstname, lastname, department_id, ptf_id ) VALUES(?, ?, ?, ?, ?, ?, ?");
+        $result = $stmt->execute([$username, $password, $role_id, $firstname, $lastname, $department_id, $ptf_id]);
+
+        if ($result) {
+            $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ?");
+            $stmt->execute([$username]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $user;
+        } else {
+            return null;
+        }
+    }
+
+    public function getKeyPermissions()
+    {
+        $stmt           = $this->conn->prepare("SELECT * FROM status WHERE 1");
+        if ($stmt->execute()) {
+           $result = $stmt -> fetchAll();
+            $status = array();
+
+
+
+            foreach( $result as $row ) {
+    $status[] = $row;
+}
+            return $status;
+        } else {
+            return NULL;
         }
     }
     

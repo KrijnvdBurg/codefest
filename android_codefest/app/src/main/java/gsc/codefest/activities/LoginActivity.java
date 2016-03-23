@@ -71,8 +71,6 @@ public class LoginActivity extends Activity {
             finish();
         }
 
-
-
         // Login button Click Event
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
@@ -116,7 +114,6 @@ public class LoginActivity extends Activity {
         showDialog();
 
         StringRequest strReq = new StringRequest(Method.POST, AppConfig.URL_LOGIN, new Response.Listener<String>() {
-
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + response);
@@ -133,15 +130,18 @@ public class LoginActivity extends Activity {
                         session.setLogin(true);
 
                         // Now store the user in SQLite
-                        String uid = jObj.getString("uid");
-
+                        String id = jObj.getString("id");
                         JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
-                        String username = user.getString("email");
-                        String created_at = user.getString("created_at");
+
+                        String username = user.getString("username");
+                        int role_id = user.getInt("role_id");
+                        String firstname = user.getString("firstname");
+                        String lastname = user.getString("lastname");
+                        int department_id = user.getInt("department_id");
+                        int ptf_id = user.getInt("ptf_id");
 
                         // Inserting row in users table
-                        db.addUser(name, username, uid, created_at);
+                        db.addUser(username, role_id, firstname, lastname, department_id, ptf_id);
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);

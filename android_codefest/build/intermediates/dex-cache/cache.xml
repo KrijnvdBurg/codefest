@@ -36,5 +36,12 @@
         sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
         <dex dex="D:\repositories\codefest\android_codefest\app\build\intermediates\pre-dexed\debug\classes-f9e201551fa6ba90eaa39d0d6a8d4a12e27a44c0.jar" />
     </item>
+    <item
+        jar="D:\repositories\codefest\android_codefest\app\libs\gson-2.3.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="D:\repositories\codefest\android_codefest\app\build\intermediates\pre-dexed\debug\gson-2.3-d8ce848f7446ca1e1886457cab70b5276079b409.jar" />
+    </item>
 
 </items>

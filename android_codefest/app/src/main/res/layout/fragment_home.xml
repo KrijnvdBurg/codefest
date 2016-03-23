@@ -7,7 +7,7 @@
         android:id="@+id/txtLabel"
          android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="36dp"
+        android:textSize="28dp"
         android:text="Sick fragment"
         android:layout_alignBottom="@+id/imageView"
         android:layout_alignTop="@+id/imageView"
@@ -25,29 +25,94 @@
         android:id="@+id/imageView"
         android:layout_margin="20dp" />
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/absenceStatus_spinner"
+        android:entries="@array/requestType_array"
+        android:layout_below="@+id/txtLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="20dp" />
+
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/sickFrom_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date"
-        android:layout_below="@+id/imageView"
+        android:layout_above="@+id/sickTill_imageButton"
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignStart="@+id/imageView"
-        android:layout_marginTop="20dp">
+        android:layout_toStartOf="@+id/sickTill_imageButton"
+        android:layout_toLeftOf="@+id/sickTill_imageButton">
 
         <requestFocus />
     </EditText>
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/sickFrom_imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editText1"
-        android:layout_toRightOf="@+id/editText1"
         android:contentDescription="@string/selectdate"
         android:cropToPadding="true"
         android:onClick="selectDate"
-        android:src="@mipmap/ic_datepicker" />
+        android:src="@mipmap/ic_datepicker"
+        android:layout_above="@+id/sickTill_imageButton"
+        android:layout_toRightOf="@+id/sickTill_editText"
+        android:layout_toEndOf="@+id/sickTill_editText" />
+
+    <EditText
+        android:id="@+id/sickTill_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/sickTill_imageButton"
+        android:layout_alignLeft="@+id/sickFrom_editText"
+        android:layout_alignStart="@+id/sickFrom_editText" />
+
+    <ImageButton
+        android:id="@+id/sickTill_imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/selectdate"
+        android:cropToPadding="true"
+        android:onClick="selectDate"
+        android:src="@mipmap/ic_datepicker"
+        android:layout_alignBottom="@+id/sickTill_editText"
+        android:layout_alignRight="@+id/absenceStatus_spinner"
+        android:layout_alignEnd="@+id/absenceStatus_spinner" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send sick period"
+        android:id="@+id/sendSickPeriod_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/reason_editText"
+        android:layout_below="@+id/sickTill_imageButton"
+        android:layout_marginTop="20dp"
+        android:layout_alignRight="@+id/sendSickPeriod_button"
+        android:layout_alignEnd="@+id/sendSickPeriod_button"
+        android:layout_above="@+id/sendSickPeriod_button"
+        android:layout_alignLeft="@+id/sickTill_editText"
+        android:layout_alignStart="@+id/sickTill_editText"
+        android:hint="Leave your time off reason here..."
+        android:singleLine="false"
+        android:maxLines="32" />
+
 
 </RelativeLayout>
