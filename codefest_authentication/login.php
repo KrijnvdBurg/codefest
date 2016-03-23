@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Ravi Tamada
- * @link http://www.androidhive.info/2012/01/android-login-and-registration-with-php-mysql-and-sqlite/ Complete tutorial
- */
-
 require_once 'include/DB_Functions.php';
 $db = new DB_Functions();
 
@@ -26,7 +20,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $response["uid"] = $user["unique_id"];
         $response["user"]["name"] = $user["name"];
         $response["user"]["email"] = $user["email"];
-        $response["user"]["api_key"] = $user["api_key"];
         $response["user"]["created_at"] = $user["created_at"];
         $response["user"]["updated_at"] = $user["updated_at"];
         echo json_encode($response);

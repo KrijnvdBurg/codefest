@@ -6,6 +6,19 @@
     <string name="hello_world">Hello world!</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
+
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Full name</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="btn_link_to_login">Already registered? Log me in.</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="name">Full name</string>
+    <string name="password_re">Retype password</string>
+    <string name="api_key">Api key</string>
     
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">

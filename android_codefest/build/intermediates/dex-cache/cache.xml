@@ -2,11 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Krijn-Laptop\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jar="C:\Users\Krijn-Laptop\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="D:\repositories\codefest\android_codefest\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-87e3ac760905859c5d45a8d88d0d808a4adcf4e5.jar" />
+    </item>
+    <item
+        jar="D:\repositories\codefest\android_codefest\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="D:\repositories\codefest\android_codefest\app\build\intermediates\pre-dexed\debug\classes-503b709e6d8338c4ccd09624b6beefda836134ed.jar" />
+    </item>
+    <item
+        jar="D:\repositories\codefest\android_codefest\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="D:\repositories\codefest\android_codefest\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-6f70dd2d1a12bc27b10e7e43947c104022f91b45.jar" />
+    </item>
+    <item
+        jar="D:\repositories\codefest\android_codefest\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="D:\repositories\codefest\android_codefest\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-ee2b7e0d6f803244b307f6b458d6b30ca66789aa.jar" />
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="D:\repositories\codefest\android_codefest\app\build\intermediates\pre-dexed\debug\classes-f9e201551fa6ba90eaa39d0d6a8d4a12e27a44c0.jar" />
+    </item>
+    <item
+        jar="D:\repositories\codefest\android_codefest\app\build\intermediates\exploded-aar\com.android.volley\volley\1.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.0.1"
+        sha1="2cd4b982617e544728de0782d718a58ce1b06e3f">
+        <dex dex="D:\repositories\codefest\android_codefest\app\build\intermediates\pre-dexed\debug\classes-f9e201551fa6ba90eaa39d0d6a8d4a12e27a44c0.jar" />
     </item>
 
 </items>

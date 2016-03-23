@@ -20,12 +20,25 @@
     </string-array>
     <!-- From: file:/D:/repositories/codefest/android_codefest/app/src/main/res/values/color.xml -->
     <eat-comment/>
+    <color name="bg_login">#1D91B8</color>
+    <color name="bg_main">#428bca</color>
+    <color name="bg_register">#2e3237</color>
+    <color name="btn_login">#26ae90</color>
+    <color name="btn_login_bg">#eceef1</color>
+    <color name="btn_logut_bg">#ff6861</color>
     <color name="counter_text_bg">#626262</color>
     <color name="counter_text_color">#c5c4c4</color>
+    <color name="input_login">#222222</color>
+    <color name="input_login_hint">#999999</color>
+    <color name="input_register">#888888</color>
+    <color name="input_register_bg">#3b4148</color>
+    <color name="input_register_hint">#5e6266</color>
+    <color name="lbl_name">#333333</color>
     <color name="list_background">#303030</color>
     <color name="list_background_pressed">#992416</color>
     <color name="list_divider">#272727</color>
     <color name="list_item_title">#fff</color>
+    <color name="white">#ffffff</color>
     <!-- From: file:/D:/repositories/codefest/android_codefest/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
@@ -33,11 +46,23 @@
     <!-- From: file:/D:/repositories/codefest/android_codefest/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
+    <string name="api_key">Api key</string>
     <string name="app_name">codefest</string>
+    <string name="btn_link_to_login">Already registered? Log me in.</string>
+    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="btn_register">REGISTER</string>
     <string name="desc_list_item_icon">Item Icon</string>
     <string name="drawer_close">Slider Menu Closed</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="hello_world">Hello world!</string>
+    <string name="hint_name">Full name</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username">Username</string>
+    <string name="name">Full name</string>
+    <string name="password_re">Retype password</string>
+    <string name="welcome">Welcome</string>
     <!-- From: file:/D:/repositories/codefest/android_codefest/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
