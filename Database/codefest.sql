@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `absence` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `status_id` int(11) NOT NULL,
-  `permission` varchar(45) NOT NULL,
+  `permission` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
