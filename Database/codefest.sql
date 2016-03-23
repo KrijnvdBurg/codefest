@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 23 mrt 2016 om 17:04
+-- Gegenereerd op: 23 mrt 2016 om 17:38
 -- Serverversie: 5.6.17
 -- PHP-versie: 5.5.12
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 CREATE TABLE IF NOT EXISTS `ptf` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ptf` int(11) NOT NULL,
+  `ptf` decimal(10,0) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS `total_attendence` (
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `password` text NOT NULL,
   `role_id` int(11) NOT NULL,
   `firstname` varchar(45) NOT NULL,
   `lastname` varchar(45) NOT NULL,
