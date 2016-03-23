@@ -29,13 +29,13 @@ class DB_Functions
      * returns user details
      */
     
-    public function storeUser($name, $email, $api_key, $password)
+    public function storeUser($name, $email, $password)
     {
         
         $uuid = uniqid('', true);
         $encrypted_password = md5($password); // encrypted password
-        $stmt = $this->conn->prepare("INSERT INTO users(unique_id, name, email, api_key, encrypted_password, created_at) VALUES(?, ?, ?, ?, ?, NOW())");
-        $stmt->bind_param("sssss", $uuid, $name, $email, $api_key, $encrypted_password);
+        $stmt = $this->conn->prepare("INSERT INTO users(unique_id, name, email, encrypted_password, created_at) VALUES(?, ?, ?, ?, NOW())");
+        $stmt->bind_param("sssss", $uuid, $name, $email, $encrypted_password);
         $result = $stmt->execute();
         $stmt->close();
         
@@ -66,22 +66,6 @@ class DB_Functions
             $user = $stmt->get_result()->PDO::FETCH_ASSOC();
             $stmt->close();
             return $user;
-        } else {
-            return NULL;
-        }
-    }
-
-    public function getKeyPermissions()
-    {
-        $stmt           = $this->conn->prepare("SELECT * FROM key_permissions WHERE 1");
-        if ($stmt->execute()) {
-            $result = $stmt->get_result();
-            $key = array();
-
-            while ($row = $result->PDO::FETCH_ASSOC()) {
-                $key[] = $row;
-            }
-            return $key;
         } else {
             return NULL;
         }
