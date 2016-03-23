@@ -29,7 +29,6 @@ class NavBar {
 		}
 
 		$result .= '</ul></div>';
-		var_dump($menuItems);
 		echo $result;
 		return $result;
 	}
