@@ -1,7 +1,6 @@
 <?php
 class NavBar {
 	private $navbar;
-	//ROLEID moet nog opgehaald worden
 	//menuItems eerste value is path 2de value is item
 
 	function __construct() {
@@ -20,6 +19,9 @@ class NavBar {
 			'2' =>  'menuMain',
 			'3' =>  'menuMain'
 		);
+
+		//ROLEID moet nog opgehaald worden
+		$roleID = $_POST['roleID'];
 		$menuclass = $menuClasses[$roleID];
 		$result = '<div id="'.$menuclass.'" name="menu"><ul>';
 		
