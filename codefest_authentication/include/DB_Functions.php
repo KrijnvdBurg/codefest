@@ -45,7 +45,7 @@ class DB_Functions
             $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
             $stmt->bind_param("s", $email);
             $stmt->execute();
-            $user = $stmt->get_result()->fetch_assoc();
+            $user = $stmt->get_result()->PDO::FETCH_ASSOC();
             $stmt->close();
             return $user;
         } else {
@@ -63,7 +63,7 @@ class DB_Functions
         $crypt_password = md5($password);
         $stmt->bind_param("ss", $email, $crypt_password);
         if ($stmt->execute()) {
-            $user = $stmt->get_result()->fetch_assoc();
+            $user = $stmt->get_result()->PDO::FETCH_ASSOC();
             $stmt->close();
             return $user;
         } else {
@@ -78,7 +78,7 @@ class DB_Functions
             $result = $stmt->get_result();
             $key = array();
 
-            while ($row = $result->fetch_assoc()) {
+            while ($row = $result->PDO::FETCH_ASSOC()) {
                 $key[] = $row;
             }
             return $key;

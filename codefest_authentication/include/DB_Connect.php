@@ -12,8 +12,8 @@ class DB_Connect {
         require_once 'include/Config.php';
         
         // Connecting to mysql database
-        $this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
-        
+        //$this->conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+		$this->conn = new PDO('mysql:host=DB_HOST;dbname=DB_DATABASE;', 'DB_USER', 'DB_PASSWORD');
         // return database handler
         return $this->conn;
     }
