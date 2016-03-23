@@ -1,0 +1,4 @@
+Deeltijdfactor houd in hoeveel dagen in de week een medewerker werkt.
+Bijv: 
+Als een medewerker een deeltijdfactor 1 heeft, dan werkt die medewerker 5 dagen in de week(Full time).
+Als een medewerker een deeltijdfactor 0.5 heeft dan werkt hij/zij dus voor 2,5 dagen in de week.
