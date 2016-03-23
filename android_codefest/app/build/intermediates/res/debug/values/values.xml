@@ -11,12 +11,10 @@
         <item>@drawable/ic_whats_hot</item>
     </array>
     <string-array name="nav_drawer_items">
-        <item>Home</item>
-        <item>Find People</item>
-        <item>Photos</item>
-        <item>Communities</item>
-        <item>Pages</item>
-        <item>What\'s Hot</item>
+        <item>Sick</item>
+        <item>Vacation</item>
+        <item>Hours</item>
+        <item>Overview</item>
     </string-array>
     <!-- From: file:/D:/repositories/codefest/android_codefest/app/src/main/res/values/color.xml -->
     <eat-comment/>
@@ -62,6 +60,8 @@
     <string name="hint_username">Username</string>
     <string name="name">Full name</string>
     <string name="password_re">Retype password</string>
+    <string name="select">Select</string>
+    <string name="selectdate">Select Date</string>
     <string name="welcome">Welcome</string>
     <!-- From: file:/D:/repositories/codefest/android_codefest/app/src/main/res/values/styles.xml -->
     <eat-comment/>

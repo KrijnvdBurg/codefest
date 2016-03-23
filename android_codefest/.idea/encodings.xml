@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/LoginActivity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/RegisterActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/activities/LoginActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/activities/RegisterActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/app/AppConfig.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/app/AppController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/gsc/codefest/helper/SQLiteHandler.java" charset="UTF-8" />
