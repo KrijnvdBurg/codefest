@@ -16,8 +16,8 @@ class NavBar {
 	function render() {
 		$menuClasses = array(
 			'1' => 'menuMedewerker',
-			'2' =>  'menuMain',
-			'3' =>  'menuMain'
+			'2' => 'menuMain',
+			'3' => 'menuMain'
 		);
 
 		//ROLEID moet nog opgehaald worden
