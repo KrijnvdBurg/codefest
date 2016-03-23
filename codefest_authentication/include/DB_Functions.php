@@ -1,107 +1,61 @@
 <?php
 
-/**
- * @author Ravi Tamada
- * @link http://www.androidhive.info/2012/01/android-login-and-registration-with-php-mysql-and-sqlite/ Complete tutorial
- */
-
-class DB_Functions
-{
+class DB_Functions{
     private $conn;
    
-    function __construct()
-    {
+    function __construct(){
         require_once 'DB_Connect.php';
         $db         = new Db_Connect();
         $this->conn = $db->connect();
     }
     
     
+    function __destruct(){}
+
     
-    // destructor
-    
-    function __destruct()
-    {
-    }
-    
-    /**
-     * Storing new user
-     * returns user details
-     */
-    
-    public function storeUser($name, $email, $password)
-    {
+    public function storeUser($name, $email, $password){
         
         $uuid = uniqid('', true);
-        $encrypted_password = md5($password); // encrypted password
+        $encrypted_password = md5($password);
         $stmt = $this->conn->prepare("INSERT INTO users(unique_id, name, email, encrypted_password, created_at) VALUES(?, ?, ?, ?, NOW())");
-        $stmt->bind_param("sssss", $uuid, $name, $email, $encrypted_password);
-        $result = $stmt->execute();
-        $stmt->close();
-        
-        // check for successful store
-        
+        //$stmt->bindParam(":uuid, :name, :email, :encrypted_password", $uuid, $name, $email, $encrypted_password);
+        $result = $stmt->execute([$uuid, $name, $email, $encrypted_password]);
+
         if ($result) {
             $stmt = $this->conn->prepare("SELECT * FROM users WHERE email = ?");
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
+            //$stmt->bindParam(":email", $email);
+            $stmt->execute([$email]);
 			$user = $stmt->fetch(PDO::FETCH_ASSOC);
-            $stmt->close();
             return $user;
         } else {
-            return 'asfdasfasdf';
+            return null;
         }
     }
     
-    /**
-     * Get user by email and password
-     */
-    
-    public function getUserByEmailAndPassword($email, $password)
-    {
+    public function getUserByEmailAndPassword($email, $password){
         $stmt           = $this->conn->prepare("SELECT * FROM users WHERE email = ? AND encrypted_password = ?");
         $crypt_password = md5($password);
-        $stmt->bind_param("ss", $email, $crypt_password);
-        if ($stmt->execute()) {
+        if ($stmt->execute([$email, $crypt_password])) {
 			$user = $stmt->fetch(PDO::FETCH_ASSOC);
-            $stmt->close();
             return $user;
         } else {
             return NULL;
         }
     }
     
-    /**
-     * Check user is existed or not
-     */
-    
-    public function isUserExisted($email)
-    {
+    public function isUserExisted($email){
         $stmt = $this->conn->prepare("SELECT email from users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $stmt->store_result();
-        if ($stmt->num_rows > 0) {
-            
-            // user existed
-            
-            $stmt->close();
+        $stmt->execute([$email]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
             return true;
         } else {
-            // user not existed
-            $stmt->close();
             return false;
         }
     }
     
-    /**
-     * Encrypting password
-     * @param password
-     * returns salt and encrypted password
-     */
-    
-    public function hashSSHA($password)
-    {
+    public function hashSSHA($password){
         $salt      = sha1(rand());
         $salt      = substr($salt, 0, 10);
         $encrypted = base64_encode(sha1($password . $salt, true) . $salt);
@@ -112,14 +66,7 @@ class DB_Functions
         return $hash;
     }
     
-    /**
-     * Decrypting password
-     * @param salt, password
-     * returns hash string
-     */
-    
-    public function checkhashSSHA($salt, $password)
-    {
+    public function checkhashSSHA($salt, $password){
         $hash = base64_encode(sha1($password . $salt, true) . $salt);
         return $hash;
     }
