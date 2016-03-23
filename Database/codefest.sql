@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 CREATE TABLE IF NOT EXISTS `ptf` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ptf` decimal(10,0) NOT NULL,
+  `ptf` decimal(10,1) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
