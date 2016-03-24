@@ -1,4 +1,10 @@
-<?php $form_path='uren_files/formoid1/form.php'; require_once $form_path;  include('../classes/navbar.class.php'); ?><!DOCTYPE html>
+<?php $form_path='uren_files/formoid1/form.php'; 
+
+require_once $form_path;  
+//include "../classes/navbar.class.php"; 
+include "../classes/hours.class.php";
+
+?><!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -8,9 +14,12 @@
 </head>
 <body>
 <?php 
-$NavBar = new NavBar();
-$NavBar->render();
+/*$NavBar = new NavBar();
+$NavBar->render();*/
+$Hours = new Hours();
+$Hours->render();
 ?>
+
 {{Formoid}}
 
 </body>
