@@ -68,39 +68,36 @@ public class  HomeFragment extends Fragment {
         pDialog = new ProgressDialog(getActivity());
         pDialog.setCancelable(false);
 
-            ImageButton sickFrom_imageButton = (ImageButton) rootView.findViewById(R.id.sickFrom_imageButton);
-            ImageButton sickTill_imageButton = (ImageButton) rootView.findViewById(R.id.sickTill_imageButton);
-            Button sendSickPeriod_button = (Button) rootView.findViewById(R.id.sendSickPeriod_button);
+        ImageButton sickFrom_imageButton = (ImageButton) rootView.findViewById(R.id.sickFrom_imageButton);
+        ImageButton sickTill_imageButton = (ImageButton) rootView.findViewById(R.id.sickTill_imageButton);
+        Button sendSickPeriod_button = (Button) rootView.findViewById(R.id.sendSickPeriod_button);
 
-            sickFrom_imageButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick (View v){
-                    timePeriodID = "sickFrom";
-                    selectDate(rootView);
-                }
-            });
+        sickFrom_imageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                timePeriodID = "sickFrom";
+                selectDate(rootView);
+            }
+        });
 
-            sickTill_imageButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick (View v) {
-                    timePeriodID = "sickTill";
-                    selectDate(rootView);
-                }
-            });
+        sickTill_imageButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v) {
+                timePeriodID = "sickTill";
+                selectDate(rootView);
+            }
+        });
 
-            sickFrom_editText=(EditText)rootView.findViewById(R.id.sickFrom_editText);
-            sickTill_editText=(EditText)rootView.findViewById(R.id.sickTill_editText);
+        sickFrom_editText=(EditText)rootView.findViewById(R.id.sickFrom_editText);
+        sickTill_editText=(EditText)rootView.findViewById(R.id.sickTill_editText);
 
-
-            sendSickPeriod_button.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick (View v){
-                    storePeriodRequest(rootView);
-                }
-            });
-
-
-        }
+        sendSickPeriod_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+                storePeriodRequest(rootView);
+            }
+        });
+    }
 
     public void selectDate(View view) {
         android.support.v4.app.DialogFragment newFragment = new SelectDateFragment();
@@ -111,10 +108,10 @@ public class  HomeFragment extends Fragment {
 
         switch(timePeriodID){
             case "sickFrom":
-                sickFrom_editText.setText(month + "/" + day + "/" + year);
+                sickFrom_editText.setText(year + "-" + month + "-" + day);
                 break;
             case "sickTill":
-                sickTill_editText.setText(month + "/" + day + "/" + year);
+                sickTill_editText.setText(year + "-" + month + "-" + day);
                 break;
             default:
                 System.out.println("timePeriodID switch didn't hit any case");
@@ -132,9 +129,11 @@ public class  HomeFragment extends Fragment {
         final String sickTill_editText_String = sickTill_editText.getText().toString().trim();
         final Spinner spinner = (Spinner) rootView.findViewById(R.id.absenceStatus_spinner);
         String status = "0";
+        String permission = "0";
         switch(spinner.getSelectedItem().toString()){
             case "Sick":
                 status = "1";
+                permission = "1";
                 break;
             case "Vacation":
                 status = "2";
@@ -146,14 +145,14 @@ public class  HomeFragment extends Fragment {
 
         if(!sickFrom_editText_String.isEmpty() || sickTill_editText_String.isEmpty()){
             final String finalStatus = status;
-            StringRequest strReq = new StringRequest(Request.Method.POST, AppConfig.URL_REGISTER, new Response.Listener<String>() {
+            final String finalPermission = permission;
+            System.out.println("yolo " + MainActivity.id);
+            StringRequest strReq = new StringRequest(Request.Method.POST, AppConfig.URL_REQUESTPERIODOFF, new Response.Listener<String>() {
 
                 @Override
                 public void onResponse(String response) {
                     Log.d(TAG, "Register Response: " + response);
                     hideDialog();
-
-
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -167,13 +166,13 @@ public class  HomeFragment extends Fragment {
                 @Override
                 protected Map<String, String> getParams() {
                     Map<String, String> params = new HashMap<String, String>();
-                    params.put("username", (MainActivity.user_id));
-                    params.put("startDate", (sickFrom_editText_String));
-                    params.put("endDate", (sickTill_editText_String));
-                    params.put("status", (finalStatus));
+                    params.put("user_id", MainActivity.id);
+                    params.put("status", finalStatus);
+                    params.put("permission", finalPermission);
+                    params.put("start_date", sickFrom_editText_String);
+                    params.put("end_date", sickTill_editText_String);
                     return params;
                 }
-
             };
             AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
         } else{

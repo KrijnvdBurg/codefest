@@ -25,7 +25,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	// Login Table Columns names
 	private static final String KEY_ID = "id";
 	private static final String KEY_USERNAME = "username";
-	private static final String KEY_ROLDID = "role_id";
+	private static final String KEY_ROLEID = "role_id";
 	private static final String KEY_FIRSTNAME = "firstname";
 	private static final String KEY_LASTNAME = "lastname";
 	private static final String KEY_DEPEARTMENTID = "department_id";
@@ -43,7 +43,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 		String CREATE_LOGIN_TABLE = "CREATE TABLE " + TABLE_USER + "("
 				+ KEY_ID + " INTEGER PRIMARY KEY,"
 				+ KEY_USERNAME + " TEXT,"
-				+ KEY_ROLDID + " INTEGER," + " TEXT UNIQUE,"
+				+ KEY_ROLEID + " INTEGER,"
 				+ KEY_FIRSTNAME + " TEXT,"
 				+ KEY_LASTNAME + " TEXT,"
 				+ KEY_DEPEARTMENTID + " INTEGER,"
@@ -67,22 +67,23 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 	 * Storing user details in database
 	 * */
 
-	public void addUser(String username, int role_id, String firstname, String lastname, int department_id, int ptf_id) {
+	public void addUser(int id, String username, int role_id, String firstname, String lastname, int department_id, int ptf_id) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
+		values.put(KEY_ID, id); // Name
 		values.put(KEY_USERNAME, username); // Name
-		values.put(KEY_ROLDID, role_id); // username
+		values.put(KEY_ROLEID, role_id); // username
 		values.put(KEY_FIRSTNAME, firstname); // uid
 		values.put(KEY_LASTNAME, lastname); // uid
 		values.put(KEY_DEPEARTMENTID, department_id); // uid
 		values.put(KEY_PTF_ID, ptf_id); // uid
 
 		// Inserting Row
-		long id = db.insert(TABLE_USER, null, values);
+		long db_id = db.insert(TABLE_USER, null, values);
 		db.close(); // Closing database connection
 
-		Log.d(TAG, "New user inserted into sqlite: " + id);
+		Log.d(TAG, "New user inserted into sqlite: " + db_id);
 	}
 
 
@@ -96,13 +97,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 		cursor.moveToFirst();
 		if (cursor.getCount() > 0) {
 
-			user.put("id", cursor.getString(1));
-			user.put("username", cursor.getString(2));
-			user.put("role_id", cursor.getString(3));
+			user.put("id", cursor.getString(0));
+			user.put("username", cursor.getString(1));
+			user.put("role_id", cursor.getString(2));
 			user.put("firstname", cursor.getString(4));
 			user.put("lastname", cursor.getString(5));
 			user.put("department_id", cursor.getString(6));
-			user.put("ptf_id", cursor.getString(71));
+			user.put("ptf_id", cursor.getString(7));
 		}
 		cursor.close();
 		db.close();

@@ -54,19 +54,9 @@ class DB_Functions{
     }
 
 
-    public function savePeriodOffInput($userid, $startDate, $endDate, $status){
-        
-        $stmt = $this->conn->prepare("INSERT INTO absence(username, password, role_id, firstname, lastname, department_id, ptf_id ) VALUES(?, ?, ?, ?, ?, ?, ?");
-        $result = $stmt->execute([$username, $password, $role_id, $firstname, $lastname, $department_id, $ptf_id]);
-
-        if ($result) {
-            $stmt = $this->conn->prepare("SELECT * FROM users WHERE username = ?");
-            $stmt->execute([$username]);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $user;
-        } else {
-            return null;
-        }
+    public function savePeriodOffInput($userid, $status_id, $permission, $start_date, $end_date){  
+        $stmt = $this->conn->prepare("INSERT INTO absence(user_id, status_id, permission, start_date, end_date) VALUES(?, ?, ?, ?, ?)");
+        $result = $stmt->execute([$userid, $status_id, $permission, $start_date, $end_date]);
     }
 
     public function getKeyPermissions()

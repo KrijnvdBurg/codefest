@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity {
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
 
-	public static String user_id;
+	public static String id;
 	public static String username;
 	public static String role_id;
 	public static String firstname;
@@ -63,13 +63,15 @@ public class MainActivity extends FragmentActivity {
 		session = new SessionManager(getApplicationContext());
 		if (!session.isLoggedIn()) { logoutUser(); }
 		HashMap<String, String> user = db.getUserDetails();
-		user_id = user.get("id");
+
+		id = user.get("id");
 		username = user.get("username");
 		role_id = user.get("role_id");
 		firstname = user.get("firstname");
 		lastname = user.get("lastname");
 		department_id = user.get("department_id");
 		ptf_id = user.get("ptf_id");
+		System.out.println("swag " + username);
 
 		mTitle = mDrawerTitle = getTitle();
 		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);

@@ -30,12 +30,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/absenceStatus_spinner"
         android:entries="@array/requestType_array"
-        android:layout_below="@+id/txtLabel"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/imageView"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_margin="20dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/sickFrom_editText"

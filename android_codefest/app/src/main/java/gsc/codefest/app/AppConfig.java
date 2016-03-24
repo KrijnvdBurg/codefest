@@ -6,7 +6,7 @@ public class AppConfig {
     private static String PROJECT_ROOT = "codefest_authentication";
 	public static String URL_LOGIN = "http://" + IP + "/" + PROJECT_ROOT + "/login.php";
 	public static String URL_REGISTER = "http://" + IP + "/" + PROJECT_ROOT + "/register.php";
-	public static String URL_ABSENCEKEYS = "http://" + IP + "/" + PROJECT_ROOT + "/absence_keys.php";
+	public static String URL_REQUESTPERIODOFF = "http://" + IP + "/" + PROJECT_ROOT + "/requestPeriodOff.php";
 
     public static String POST_key = "yoghurt";
 }

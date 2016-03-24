@@ -106,9 +106,8 @@ public class RegisterActivity extends Activity {
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
-                        String uid = jObj.getString("uid");
-
                         JSONObject user = jObj.getJSONObject("user");
+                        int user_id = user.getInt("user_id");
                         String username = user.getString("username");
                         int role_id = user.getInt("role_id");
                         String firstname = user.getString("firstname");
@@ -116,7 +115,7 @@ public class RegisterActivity extends Activity {
                         int department_id = user.getInt("department_id");
                         int ptf_id = user.getInt("ptf_id");
 
-                        db.addUser(username, role_id, firstname, lastname, department_id, ptf_id);
+                        db.addUser(user_id, username, role_id, firstname, lastname, department_id, ptf_id);
                         Toast.makeText(getApplicationContext(), "User successfully registered. Try login now!", Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent( RegisterActivity.this, LoginActivity.class);
